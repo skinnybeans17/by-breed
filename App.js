@@ -1,33 +1,17 @@
-import { StyleSheet, View, FlatList } from 'react-native';
-import { cats } from './breeds'
-import Item from './Item'
-import { SafeAreaView } from 'react-native'
-import React from 'react';
-import { StatusBar } from "expo-status-bar";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+import BreedsApp from './BreedsApp';
+import DetailsScreen from './DetailsScreen';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <FlatList
-          data={cats}
-          renderItem={({ item, index }) => {
-            return <Item item={item} index={index}/>;
-          }}
-          keyExtractor={(item) => item.index}
-          />
-      </SafeAreaView>
-      <StatusBar style="auto"/>
-    </View>
-  );
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Breeds">
+        <Stack.Screen name="Breeds" component={BreedsApp}/>
+        <Stack.Screen name="Details" component={DetailsScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-  },
-});
