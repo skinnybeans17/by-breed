@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native'
 import React from 'react';
 import { StatusBar } from "expo-status-bar";
 
-export default function App() {
+function App() {
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -31,3 +31,5 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
+
+export default App

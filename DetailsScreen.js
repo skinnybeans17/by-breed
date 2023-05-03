@@ -2,7 +2,7 @@ import { View, ScrollView, StyleSheet } from 'react-native';
 import React from 'react';
 import AnimalCard from './AnimalCard';
 
-export default function DetailsScreen({route, navigation}) {
+function DetailsScreen({route, navigation}) {
     const { title, average, animal, numericFeatures } = route.params;
     navigation.setOptions({title: `${title}, ${average}`})
     return (
@@ -23,3 +23,5 @@ const styles = StyleSheet.create({
       width: '100%',
     },
   });
+
+export default DetailsScreen
